@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/athena/franka_ros2_ws/install/franka_gripper/lib/python3.10/site-packages",
+        "/home/athena/franka_ros2_ws/install/franka_msgs/lib/python3.10/site-packages",
+        "/opt/ros/iron/lib/python3.10/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/athena/franka_ros2_ws/install/franka_gripper/lib/python3.10/site-packages",
+        "/home/athena/franka_ros2_ws/install/franka_msgs/lib/python3.10/site-packages",
+        "/opt/ros/iron/lib/python3.10/site-packages"
+    ]
+}
