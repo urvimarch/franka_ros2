@@ -38,7 +38,7 @@
   
   
   
-  <xacro:macro name="panda_arm" params="arm_id:='panda' description_pkg:='franka_description' connected_to:='' xyz:='0 0 0' rpy:='0 0 0' safety_distance:=0">
+  <xacro:macro name="panda_arm" params="arm_id:='panda' description_pkg:='franka_description' connected_to:='' xyz:='0 0 0' rpy:='0 0 0' safety_distance:='' ">
     <xacro:unless value="${not connected_to}">
       <joint name="${arm_id}_joint_${connected_to}" type="fixed">
         <parent link="${connected_to}"/>
@@ -48,14 +48,14 @@
     </xacro:unless>
 
     <xacro:property
-    name="joint_damping" value="1.0" />
+    name="joint_damping" value="10.0" />
 
-    <joint name="robot_to_world" type="fixed">
+    <!--<joint name="robot_to_world" type="fixed">
       <parent link="world" />
       <child link="${arm_id}_link0" />
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
       <dynamics damping="${joint_damping}" />
-    </joint>
+    </joint>-->
 
     <link name="${arm_id}_link0">
       <visual>
