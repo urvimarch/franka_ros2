@@ -1,13 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
 project(franka_description)
+
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
-
-#add_executable(talker src/1_controller_test.py)
-#ament_target_dependencies(talker rclpy std_msgs)
-
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -20,8 +18,19 @@ endif()
 
 # Install launch files.
 install(DIRECTORY
-  launch robots meshes rviz worlds config
+  launch robots meshes rviz worlds config franka_description
   DESTINATION share/${PROJECT_NAME}/
 )
 
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+
+# Install Python executables
+install(PROGRAMS
+  franka_description/1_controller_test.py
+  franka_description/2_inverse_kinematics.py
+
+  DESTINATION lib/${PROJECT_NAME}
+)
+ 
 ament_package()
